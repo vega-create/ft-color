@@ -14,8 +14,6 @@ faq:
   - q: "Does color really affect purchasing decisions?"
     a: "Yes — studies show up to 90% of initial product judgments are based on color alone. The right color palette can increase brand recognition by up to 80%."
 ---
-
-<div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 0.4rem;"><div style="padding: 0.6rem; background: #dc2626; border-radius: 8px; text-align: center;"><div style="font-size: 0.75rem; font-weight: 700; color: white;">Red</div><div style="font-size: 0.65rem; color: #fecaca;">Urgency</div></div><div style="padding: 0.6rem; background: #2563eb; border-radius: 8px; text-align: center;"><div style="font-size: 0.75rem; font-weight: 700; color: white;">Blue</div><div style="font-size: 0.65rem; color: #bfdbfe;">Trust</div></div><div style="padding: 0.6rem; background: #16a34a; border-radius: 8px; text-align: center;"><div style="font-size: 0.75rem; font-weight: 700; color: white;">Green</div><div style="font-size: 0.65rem; color: #bbf7d0;">Growth</div></div><div style="padding: 0.6rem; background: #eab308; border-radius: 8px; text-align: center;"><div style="font-size: 0.75rem; font-weight: 700; color: white;">Yellow</div><div style="font-size: 0.65rem; color: #fef3c7;">Optimism</div></div><div style="padding: 0.6rem; background: #7c3aed; border-radius: 8px; text-align: center;"><div style="font-size: 0.75rem; font-weight: 700; color: white;">Purple</div><div style="font-size: 0.65rem; color: #e9d5ff;">Luxury</div></div></div>
 Color influences how people perceive brands, products, and messages. While individual preferences vary, research shows consistent patterns in how colors affect emotions and decisions.
 
 ## Colors and Their Associations

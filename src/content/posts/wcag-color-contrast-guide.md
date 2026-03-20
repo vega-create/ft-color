@@ -14,8 +14,6 @@ faq:
   - q: "What is the difference between WCAG AA and AAA?"
     a: "WCAG AAA is stricter — requiring 7:1 for normal text and 4.5:1 for large text. AA is the standard most websites aim for, while AAA provides enhanced accessibility for users with more significant vision impairments."
 ---
-
-<div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;"><div style="padding: 0.7rem; background: #fef3c7; border-radius: 10px; text-align: center; border: 1px solid #fde68a;"><div style="font-size: 1.2rem; font-weight: 800; color: #92400e;">3:1</div><div style="font-size: 0.7rem; color: #6b7280;">Large text AA</div></div><div style="padding: 0.7rem; background: #d1fae5; border-radius: 10px; text-align: center; border: 1px solid #6ee7b7;"><div style="font-size: 1.2rem; font-weight: 800; color: #059669;">4.5:1</div><div style="font-size: 0.7rem; color: #6b7280;">Normal text AA</div></div><div style="padding: 0.7rem; background: #dbeafe; border-radius: 10px; text-align: center; border: 1px solid #93c5fd;"><div style="font-size: 1.2rem; font-weight: 800; color: #1e40af;">7:1</div><div style="font-size: 0.7rem; color: #6b7280;">AAA (enhanced)</div></div></div>
 Color contrast is a fundamental aspect of web accessibility. The Web Content Accessibility Guidelines (WCAG) set specific contrast ratio requirements to ensure text is readable by people with low vision.
 
 ## What Is Contrast Ratio?

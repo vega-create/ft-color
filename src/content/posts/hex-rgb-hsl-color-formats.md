@@ -14,8 +14,6 @@ faq:
   - q: "How do I convert between color formats?"
     a: "You can use our free color converter tool to instantly convert between HEX, RGB, HSL, and other formats. Just enter any color value and get all formats."
 ---
-
-<div style="margin: 2rem 0; background: #f8fafc; border-radius: 12px; padding: 1rem; border: 1px solid #e2e8f0;"><div style="font-weight: 700; font-size: 0.85rem; color: #334155; margin-bottom: 0.6rem;">Same Color, 3 Formats</div><div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;"><div style="width: 40px; height: 40px; background: #FF6B35; border-radius: 8px;"></div><div style="display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.75rem; font-family: monospace;"><div><b style="color: #1e40af;">HEX:</b> #FF6B35</div><div><b style="color: #059669;">RGB:</b> rgb(255, 107, 53)</div><div><b style="color: #7c3aed;">HSL:</b> hsl(16, 100%, 60%)</div></div></div></div>
 Digital colors are represented in several formats, each with specific advantages. Understanding these formats helps you work more effectively with color in web design and development.
 
 ## HEX Colors

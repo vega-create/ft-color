@@ -14,8 +14,6 @@ faq:
   - q: "How do I make a gradient text effect in CSS?"
     a: "Apply background: linear-gradient() to the text element, then add -webkit-background-clip: text and -webkit-text-fill-color: transparent to clip the gradient to the text shape."
 ---
-
-<div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;"><div style="padding: 0.8rem; background: linear-gradient(to right, #3b82f6, #8b5cf6); border-radius: 10px; text-align: center;"><div style="font-weight: 700; color: white; font-size: 0.8rem;">Linear →</div><div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">Direction-based</div></div><div style="padding: 0.8rem; background: radial-gradient(circle, #3b82f6, #1e293b); border-radius: 10px; text-align: center;"><div style="font-weight: 700; color: white; font-size: 0.8rem;">Radial ○</div><div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">Center outward</div></div><div style="padding: 0.8rem; background: conic-gradient(#3b82f6, #8b5cf6, #ec4899, #3b82f6); border-radius: 10px; text-align: center;"><div style="font-weight: 700; color: white; font-size: 0.8rem;">Conic ◐</div><div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">Angle sweep</div></div></div>
 CSS gradients create smooth color transitions without images. They are resolution-independent, load instantly, and can create sophisticated visual effects.
 
 ## Linear Gradients
