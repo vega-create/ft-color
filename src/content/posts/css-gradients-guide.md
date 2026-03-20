@@ -4,7 +4,22 @@ description: "Master CSS linear and radial gradients with practical examples."
 publishDate: "2026-02-02"
 category: "Technical"
 tags: ["css", "gradients", "design"]
+image: "https://images.pexels.com/photos/6985134/pexels-photo-6985134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+imageAlt: "A vibrant and colorful gradient background blending green, yellow, and purple hues."
+faq:
+  - q: "What is the CSS syntax for a linear gradient?"
+    a: "Use background: linear-gradient(direction, color1, color2). For example: background: linear-gradient(to right, #3b82f6, #8b5cf6) creates a blue-to-purple horizontal gradient."
+  - q: "Can I use more than two colors in a gradient?"
+    a: "Yes! You can add as many color stops as you want. Example: linear-gradient(to right, red, orange, yellow, green, blue) creates a rainbow effect."
+  - q: "How do I make a gradient text effect in CSS?"
+    a: "Apply background: linear-gradient() to the text element, then add -webkit-background-clip: text and -webkit-text-fill-color: transparent to clip the gradient to the text shape."
 ---
+
+<div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.6rem;">
+<div style="padding: 0.8rem; background: #eff6ff; border-radius: 10px; border: 1px solid #bfdbfe; text-align: center;"><div style="font-size: 1.3rem;">➡️</div><div style="font-weight: 700; color: #2563eb; font-size: 0.8rem;">Linear</div><div style="color: #6b7280; font-size: 0.7rem;">left to right/top to bottom</div></div>
+<div style="padding: 0.8rem; background: #f0fdf4; border-radius: 10px; border: 1px solid #bbf7d0; text-align: center;"><div style="font-size: 1.3rem;">⭕</div><div style="font-weight: 700; color: #16a34a; font-size: 0.8rem;">Radial</div><div style="color: #6b7280; font-size: 0.7rem;">center outward circle</div></div>
+<div style="padding: 0.8rem; background: #faf5ff; border-radius: 10px; border: 1px solid #e9d5ff; text-align: center;"><div style="font-size: 1.3rem;">🔄</div><div style="font-weight: 700; color: #7c3aed; font-size: 0.8rem;">Conic</div><div style="color: #6b7280; font-size: 0.7rem;">around a center point</div></div>
+</div>
 
 CSS gradients create smooth color transitions without images. They are resolution-independent, load instantly, and can create sophisticated visual effects.
 

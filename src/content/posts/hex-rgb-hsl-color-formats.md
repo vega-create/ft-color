@@ -4,7 +4,22 @@ description: "A clear explanation of common digital color formats."
 publishDate: "2026-02-01"
 category: "Technical"
 tags: ["hex", "rgb", "hsl", "formats"]
+image: "https://images.pexels.com/photos/4378648/pexels-photo-4378648.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+imageAlt: "A fan arrangement of vibrant blue color swatches on a bold blue background."
+faq:
+  - q: "What is the difference between HEX, RGB, and HSL?"
+    a: "HEX uses a 6-digit hexadecimal code (#RRGGBB), RGB specifies red/green/blue values (0-255), and HSL uses hue (0-360°), saturation, and lightness percentages. All three can represent the same colors."
+  - q: "Which color format should I use for web design?"
+    a: "HEX is most common in CSS. HSL is more intuitive for adjusting colors (easy to lighten/darken). RGB is standard for JavaScript and dynamic color manipulation."
+  - q: "How do I convert between color formats?"
+    a: "You can use our free color converter tool to instantly convert between HEX, RGB, HSL, and other formats. Just enter any color value and get all formats."
 ---
+
+<div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.6rem;">
+<div style="padding: 0.8rem; background: #eff6ff; border-radius: 10px; border: 1px solid #bfdbfe; text-align: center;"><div style="font-size: 1.3rem;">🔵</div><div style="font-weight: 700; color: #2563eb; font-size: 0.8rem;">HEX</div><div style="color: #6b7280; font-size: 0.7rem;">#3B82F6</div></div>
+<div style="padding: 0.8rem; background: #f0fdf4; border-radius: 10px; border: 1px solid #bbf7d0; text-align: center;"><div style="font-size: 1.3rem;">🟢</div><div style="font-weight: 700; color: #16a34a; font-size: 0.8rem;">RGB</div><div style="color: #6b7280; font-size: 0.7rem;">rgb(59,130,246)</div></div>
+<div style="padding: 0.8rem; background: #faf5ff; border-radius: 10px; border: 1px solid #e9d5ff; text-align: center;"><div style="font-size: 1.3rem;">🟣</div><div style="font-weight: 700; color: #7c3aed; font-size: 0.8rem;">HSL</div><div style="color: #6b7280; font-size: 0.7rem;">hsl(217,91%,60%)</div></div>
+</div>
 
 Digital colors are represented in several formats, each with specific advantages. Understanding these formats helps you work more effectively with color in web design and development.
 
