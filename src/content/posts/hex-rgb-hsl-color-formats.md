@@ -15,12 +15,7 @@ faq:
     a: "You can use our free color converter tool to instantly convert between HEX, RGB, HSL, and other formats. Just enter any color value and get all formats."
 ---
 
-<div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.6rem;">
-<div style="padding: 0.8rem; background: #eff6ff; border-radius: 10px; border: 1px solid #bfdbfe; text-align: center;"><div style="font-size: 1.3rem;">🔵</div><div style="font-weight: 700; color: #2563eb; font-size: 0.8rem;">HEX</div><div style="color: #6b7280; font-size: 0.7rem;">#3B82F6</div></div>
-<div style="padding: 0.8rem; background: #f0fdf4; border-radius: 10px; border: 1px solid #bbf7d0; text-align: center;"><div style="font-size: 1.3rem;">🟢</div><div style="font-weight: 700; color: #16a34a; font-size: 0.8rem;">RGB</div><div style="color: #6b7280; font-size: 0.7rem;">rgb(59,130,246)</div></div>
-<div style="padding: 0.8rem; background: #faf5ff; border-radius: 10px; border: 1px solid #e9d5ff; text-align: center;"><div style="font-size: 1.3rem;">🟣</div><div style="font-weight: 700; color: #7c3aed; font-size: 0.8rem;">HSL</div><div style="color: #6b7280; font-size: 0.7rem;">hsl(217,91%,60%)</div></div>
-</div>
-
+<div style="margin: 2rem 0; background: #f8fafc; border-radius: 12px; padding: 1rem; border: 1px solid #e2e8f0;"><div style="font-weight: 700; font-size: 0.85rem; color: #334155; margin-bottom: 0.6rem;">Same Color, 3 Formats</div><div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;"><div style="width: 40px; height: 40px; background: #FF6B35; border-radius: 8px;"></div><div style="display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.75rem; font-family: monospace;"><div><b style="color: #1e40af;">HEX:</b> #FF6B35</div><div><b style="color: #059669;">RGB:</b> rgb(255, 107, 53)</div><div><b style="color: #7c3aed;">HSL:</b> hsl(16, 100%, 60%)</div></div></div></div>
 Digital colors are represented in several formats, each with specific advantages. Understanding these formats helps you work more effectively with color in web design and development.
 
 ## HEX Colors

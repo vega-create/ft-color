@@ -15,12 +15,7 @@ faq:
     a: "Apply background: linear-gradient() to the text element, then add -webkit-background-clip: text and -webkit-text-fill-color: transparent to clip the gradient to the text shape."
 ---
 
-<div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.6rem;">
-<div style="padding: 0.8rem; background: #eff6ff; border-radius: 10px; border: 1px solid #bfdbfe; text-align: center;"><div style="font-size: 1.3rem;">➡️</div><div style="font-weight: 700; color: #2563eb; font-size: 0.8rem;">Linear</div><div style="color: #6b7280; font-size: 0.7rem;">left to right/top to bottom</div></div>
-<div style="padding: 0.8rem; background: #f0fdf4; border-radius: 10px; border: 1px solid #bbf7d0; text-align: center;"><div style="font-size: 1.3rem;">⭕</div><div style="font-weight: 700; color: #16a34a; font-size: 0.8rem;">Radial</div><div style="color: #6b7280; font-size: 0.7rem;">center outward circle</div></div>
-<div style="padding: 0.8rem; background: #faf5ff; border-radius: 10px; border: 1px solid #e9d5ff; text-align: center;"><div style="font-size: 1.3rem;">🔄</div><div style="font-weight: 700; color: #7c3aed; font-size: 0.8rem;">Conic</div><div style="color: #6b7280; font-size: 0.7rem;">around a center point</div></div>
-</div>
-
+<div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;"><div style="padding: 0.8rem; background: linear-gradient(to right, #3b82f6, #8b5cf6); border-radius: 10px; text-align: center;"><div style="font-weight: 700; color: white; font-size: 0.8rem;">Linear →</div><div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">Direction-based</div></div><div style="padding: 0.8rem; background: radial-gradient(circle, #3b82f6, #1e293b); border-radius: 10px; text-align: center;"><div style="font-weight: 700; color: white; font-size: 0.8rem;">Radial ○</div><div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">Center outward</div></div><div style="padding: 0.8rem; background: conic-gradient(#3b82f6, #8b5cf6, #ec4899, #3b82f6); border-radius: 10px; text-align: center;"><div style="font-weight: 700; color: white; font-size: 0.8rem;">Conic ◐</div><div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">Angle sweep</div></div></div>
 CSS gradients create smooth color transitions without images. They are resolution-independent, load instantly, and can create sophisticated visual effects.
 
 ## Linear Gradients
