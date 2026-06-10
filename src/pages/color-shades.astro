@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import ColorShades from '../components/tools/ColorShades';
+
+const faq = [
+  { q: "What is the difference between a tint, a shade, and a tone?", a: "A tint is the base color mixed with white (lighter version). A shade is the base color mixed with black (darker version). A tone is the base color mixed with gray (muted version). All three are useful for building design systems." },
+  { q: "How many shades should I generate for a design system?", a: "Most modern design systems use 10 steps (labeled 50, 100, 200, ..., 900) like Tailwind CSS and Material Design. This gives enough variation for backgrounds, borders, text, and hover states without being overwhelming." },
+  { q: "Can I use these shades in Tailwind CSS?", a: "Yes. Copy the generated HEX codes and paste them into your tailwind.config.js under theme.extend.colors. Tailwind will then auto-generate utility classes like bg-brand-100, text-brand-900, etc." },
+  { q: "Will these shades pass accessibility checks?", a: "Light shades (50–300) are usually too pale for text. Dark shades (700–900) work well for text on white. Always pair text and background through our <a href='/contrast-checker/'>contrast checker</a> before deploying." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="Color Shades Generator" description="Generate tints and shades of any color." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">Color Shades Generator</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">Color Shades Generator</h1>
-    <ColorShades client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="Color Shades Generator" description="Generate a full scale of tints, shades, and tones from any base color. Build instant 10-step design system color scales." slug="color-shades" faq={faq}>
+  <ColorShades client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Generate Color Shades</h2>
+    <p>Enter your base color as a HEX code or use the color picker. The tool instantly generates 10 evenly spaced shades — 5 lighter (tints) and 5 darker (shades) — along with the original color in the middle. Copy any shade with a click, or copy them all as CSS variables ready for your stylesheet.</p>
+
+    <h2>Building a Design System Color Scale</h2>
+    <p>Modern design systems define each brand color as a 10-step scale: 50 (lightest), 100, 200, 300, 400, 500 (base), 600, 700, 800, 900 (darkest). Tailwind CSS, Material Design, and IBM Carbon all follow this pattern. The shallow steps (50–200) work great as background tints; the deep steps (700–900) are best for text and emphasis.</p>
+
+    <h2>Tints vs Shades vs Tones</h2>
+    <p><strong>Tints</strong> are created by adding white — they lighten the hue while preserving saturation. <strong>Shades</strong> are created by adding black — they darken without changing hue. <strong>Tones</strong> are created by adding gray — they mute the color, often producing more sophisticated palettes. This generator produces all three, but tints and shades are the most commonly used in UI design.</p>
+
+    <h2>Using Shades for Hover States</h2>
+    <p>The classic UI trick: your default button uses shade 500, hover uses shade 600, active uses shade 700. This three-step interaction feels tactile and predictable. For disabled states, drop two steps and reduce opacity to 60%. Use our <a href="/palette-generator/">palette generator</a> first to find your base color, then expand each into a full scale here.</p>
+  </Fragment>
+</ToolLayout>

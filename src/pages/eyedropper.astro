@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import Eyedropper from '../components/tools/Eyedropper';
+
+const faq = [
+  { q: "Which browsers support the eyedropper API?", a: "The native EyeDropper API works in Chrome, Edge, and Opera (version 95+). Firefox and Safari currently do not support it. On unsupported browsers, the tool falls back to a manual color picker." },
+  { q: "Can I pick a color from another app or my desktop?", a: "Yes — but only on supported browsers. When you click 'Open Eyedropper', the browser lets you sample any pixel on your entire screen, including content from other applications, system menus, or photos in your gallery." },
+  { q: "Does the eyedropper work on mobile?", a: "Mobile browsers do not yet support the EyeDropper API. On phones and tablets, use our regular <a href='/color-picker/'>color picker</a> or <a href='/image-colors/'>image color extractor</a> instead." },
+  { q: "Is the picked color saved?", a: "No persistent storage — the color stays only in the current session. Copy the HEX, RGB, or HSL value immediately if you want to save it for later use." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="Eyedropper Tool" description="Pick colors from anywhere on your screen." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">Eyedropper Tool</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">Eyedropper Tool</h1>
-    <Eyedropper client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="Eyedropper Tool" description="Pick colors from anywhere on your screen using the native EyeDropper API. Free online tool for designers, developers, and content creators." slug="eyedropper" faq={faq}>
+  <Eyedropper client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Use the Eyedropper Tool</h2>
+    <p>Click the "Open Eyedropper" button. Your browser will activate the screen-sampling mode and your cursor turns into a precision crosshair. Hover over any pixel — on this page, a different tab, your desktop, or another app — then click to capture the color. The tool instantly displays the picked color in HEX, RGB, and HSL formats.</p>
+
+    <h2>When Designers Use a Screen Eyedropper</h2>
+    <p>The screen eyedropper is invaluable when you need to match a color that exists somewhere else — a competitor's website, a screenshot of an old design, a photo on your desktop, or a frame from a video. Instead of guessing, the eyedropper gives you the exact pixel value down to the byte.</p>
+
+    <h2>Browser Compatibility Notes</h2>
+    <p>The tool relies on the modern EyeDropper API (window.EyeDropper). Chromium-based browsers (Chrome, Edge, Brave, Opera, Arc) support it from version 95 onwards. Firefox and Safari have not yet shipped support, so we display a polite fallback notice on those browsers. If your browser shows the fallback, try our standard <a href="/color-picker/">color picker</a> or <a href="/image-colors/">image color extractor</a>.</p>
+
+    <h2>Privacy and Permissions</h2>
+    <p>Some browsers will prompt you for permission before allowing screen sampling. This is a security measure — granting access lets the tool read pixel data from your screen. We never store, transmit, or log any color you pick. Everything happens locally in your browser.</p>
+  </Fragment>
+</ToolLayout>

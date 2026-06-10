@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import ColorPicker from '../components/tools/ColorPicker';
+
+const faq = [
+  { q: "What is the difference between HEX, RGB, and HSL?", a: "HEX (#FF5733) is a 6-digit hexadecimal code mainly used in CSS and design files. RGB (rgb(255,87,51)) represents Red, Green, Blue channels and is common in JavaScript and graphics programming. HSL (hsl(11,100%,60%)) uses Hue, Saturation, Lightness and is the most intuitive for adjusting colors by feel." },
+  { q: "Can I copy the color values to use in CSS?", a: "Yes. Click any of the displayed HEX, RGB, or HSL values to copy them to your clipboard. The HEX format works directly in CSS (color: #FF5733), and the RGB/HSL formats can be pasted as-is into your stylesheet." },
+  { q: "Does this color picker work on mobile?", a: "Yes. The tool is fully responsive and supports touch input on phones and tablets. You can drag the color slider or tap to select hues directly." },
+  { q: "Is the picked color private?", a: "Completely. All color picking happens in your browser — no data is sent to our servers, stored, or tracked. You can use the tool offline once the page is loaded." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="Color Picker" description="Pick any color and get HEX, RGB, HSL values." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">Color Picker</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">Color Picker</h1>
-    <ColorPicker client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="Color Picker" description="Pick any color and get HEX, RGB, HSL values instantly. Free online color picker for designers and developers." slug="color-picker" faq={faq}>
+  <ColorPicker client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Use the Color Picker</h2>
+    <p>Click anywhere on the color spectrum to pick a hue, then fine-tune the saturation and lightness using the secondary slider. The tool instantly displays your chosen color in three industry-standard formats: HEX, RGB, and HSL. Click any value to copy it to your clipboard for use in CSS, design tools, or code.</p>
+
+    <h2>Understanding Color Formats</h2>
+    <p>Different formats serve different purposes. <strong>HEX codes</strong> like #FF5733 are the most common in web design and tools like Figma or Sketch. <strong>RGB values</strong> are essential when working with HTML5 canvas, JavaScript animations, or when you need to manipulate transparency with rgba(). <strong>HSL</strong> is increasingly popular in modern CSS because adjusting "lightness" or "saturation" by 10% is far more intuitive than tweaking individual R/G/B channels.</p>
+
+    <h2>When Designers Use a Color Picker</h2>
+    <p>Color pickers are essential when building a brand palette, matching a hex code from a client's existing logo, exploring tints and shades for a UI component, or sampling a color from an inspiration image. Combine this tool with our <a href="/contrast-checker/">contrast checker</a> to ensure your picked colors meet WCAG accessibility standards before using them on buttons or text.</p>
+
+    <h2>Tips for Picking Better Colors</h2>
+    <p>Avoid pure black (#000000) and pure white (#FFFFFF) for body text — they create harsh contrast. Instead, try #1A1A1A and #FAFAFA for a softer feel. When picking brand colors, aim for moderate saturation (60–80%) and avoid neon hues unless your brand explicitly calls for them. Save successful color combinations using our <a href="/palette-generator/">palette generator</a>.</p>
+  </Fragment>
+</ToolLayout>

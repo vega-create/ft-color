@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import PaletteGenerator from '../components/tools/PaletteGenerator';
+
+const faq = [
+  { q: "What is the difference between complementary, analogous, and triadic palettes?", a: "Complementary uses two colors directly opposite on the color wheel (high contrast, energetic). Analogous uses 3 colors next to each other (harmonious, calm). Triadic uses 3 evenly spaced colors (vibrant but balanced). The tool generates all common harmony types from one starting color." },
+  { q: "How many colors should a brand palette have?", a: "Most strong brands use 5–7 colors total: 1 primary, 1 secondary, 2–3 neutrals (for backgrounds and text), and 2 accents (for buttons and alerts). More than 7 makes brand recognition harder." },
+  { q: "Can I lock a color and regenerate the others?", a: "Yes. Click the lock icon next to any swatch to keep it fixed, then regenerate. This is useful when your brand color is already decided and you want the tool to find harmonious matches." },
+  { q: "Are the generated palettes accessibility-ready?", a: "The generator focuses on visual harmony, not contrast guarantees. Always run your final color pairs through our <a href='/contrast-checker/'>contrast checker</a> before using them for text or interactive elements." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="Palette Generator" description="Generate beautiful color palettes automatically." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">Palette Generator</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">Palette Generator</h1>
-    <PaletteGenerator client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="Palette Generator" description="Generate beautiful, harmonious color palettes automatically. Pick a base color and explore complementary, analogous, triadic, and monochromatic schemes." slug="palette-generator" faq={faq}>
+  <PaletteGenerator client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Use the Palette Generator</h2>
+    <p>Start by picking a base color — either type a HEX code, use the visual picker, or hit "Random" for inspiration. Choose a harmony rule (complementary, analogous, triadic, tetradic, or monochromatic) and the tool instantly generates a coordinated 5-color palette. Lock the colors you like and regenerate the rest until the palette feels right.</p>
+
+    <h2>Color Theory Behind Each Harmony</h2>
+    <p><strong>Complementary</strong> (opposite hues): high contrast, great for call-to-action buttons. <strong>Analogous</strong> (adjacent hues): peaceful, ideal for nature themes or meditation apps. <strong>Triadic</strong> (evenly spaced): vivid and playful, used in cartoons and children's brands. <strong>Tetradic</strong> (two complementary pairs): rich and complex, suited for editorial design. <strong>Monochromatic</strong> (single hue, varied lightness): minimal and sophisticated, popular in luxury branding.</p>
+
+    <h2>Building a Brand Palette</h2>
+    <p>Start with your brand's primary color — the one that should dominate. Use the generator to find a complementary accent for action elements (buttons, links, alerts). Add 2 neutrals: a near-white for backgrounds and a near-black for text. Together these 4 hues form the backbone of a usable brand palette. Use <a href="/color-shades/">color shades</a> to expand each base into a 10-step scale for design systems.</p>
+
+    <h2>Saving and Exporting Palettes</h2>
+    <p>Once you have a palette you like, copy individual HEX codes one by one, or use the "Export" button to download all five as a JSON file or CSS variables. You can paste the CSS directly into your stylesheet and start using the colors right away.</p>
+  </Fragment>
+</ToolLayout>

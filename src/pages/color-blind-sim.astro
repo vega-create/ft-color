@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import ColorBlindSim from '../components/tools/ColorBlindSim';
+
+const faq = [
+  { q: "What are the main types of color blindness?", a: "The three most common: protanopia (red-blindness, ~1% of men), deuteranopia (green-blindness, ~1% of men), and tritanopia (blue-blindness, very rare). The tool simulates all three, plus full achromatopsia (total color blindness)." },
+  { q: "How accurate are these simulations?", a: "The simulations are mathematically derived from the standard color vision research models (Brettel, Viénot, Mollon, 1997). They give a reliable approximation of how a color-blind viewer experiences the image, though no simulation perfectly replaces lived experience." },
+  { q: "Why should designers care about color blindness?", a: "About 1 in 12 men and 1 in 200 women have some form of color vision deficiency. That is millions of users worldwide. If your design relies on red-vs-green to communicate (think dashboards, traffic-light status, stock charts), many viewers will literally not see the message." },
+  { q: "How do I design for color blindness?", a: "Two rules: (1) never rely on color alone — pair it with icons, labels, patterns, or shape. (2) Pick palettes that remain distinguishable across all simulations. Our <a href='/palette-generator/'>palette generator</a> with locked-color regeneration helps you iterate quickly." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="Color Blindness Simulator" description="See how colors look with different types of color blindness." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">Color Blindness Simulator</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">Color Blindness Simulator</h1>
-    <ColorBlindSim client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="Color Blindness Simulator" description="See how colors and images appear to people with protanopia, deuteranopia, tritanopia, or full color blindness. Essential accessibility tool for designers." slug="color-blind-sim" faq={faq}>
+  <ColorBlindSim client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Use the Color Blindness Simulator</h2>
+    <p>Upload an image, screenshot of your design, or paste a color palette. The tool renders side-by-side previews showing how it appears with normal vision and with the four major color vision deficiencies. Toggle between simulation types to spot which elements lose meaning for each condition.</p>
+
+    <h2>The Four Conditions Simulated</h2>
+    <p><strong>Protanopia</strong> (red-blindness): reds appear dim and green-yellow. <strong>Deuteranopia</strong> (green-blindness): reds and greens are difficult to distinguish — the most common form. <strong>Tritanopia</strong> (blue-blindness): blues and yellows are confused; very rare. <strong>Achromatopsia</strong> (total color blindness): everyone sees only grayscale — extremely rare but worth designing for as a worst case.</p>
+
+    <h2>Common Design Pitfalls Color Blindness Reveals</h2>
+    <p>Red-green status indicators (the classic "error red" + "success green") are invisible to roughly 8% of male users. Pie charts that rely only on color to differentiate segments become unreadable. "Click the red button" instructions fail. Heat maps that go red → yellow → green lose their entire scale. The simulator surfaces these problems immediately, while your design is still cheap to change.</p>
+
+    <h2>Fixing Color-Blindness Issues</h2>
+    <p>Add a second visual signal beyond color: icons next to error/success messages (✗ vs ✓), patterns or labels on chart segments, text labels on dashboards, distinct shapes for graph markers. Choose color pairings with high luminance contrast in addition to hue difference — even if the hue is lost, the brightness difference still distinguishes them. Run the final design through our <a href="/contrast-checker/">contrast checker</a> to confirm.</p>
+  </Fragment>
+</ToolLayout>

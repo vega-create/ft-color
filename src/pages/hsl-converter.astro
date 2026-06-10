@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import HslConverter from '../components/tools/HslConverter';
+
+const faq = [
+  { q: "What is HSL and how is it different from RGB?", a: "HSL stands for Hue (0–360°), Saturation (0–100%), and Lightness (0–100%). Unlike RGB which describes color in terms of red/green/blue mixing, HSL matches how humans intuitively think about color — pick a hue, then adjust how vivid and how light it is." },
+  { q: "Why do designers love HSL?", a: "HSL makes color adjustments predictable. To create a slightly darker version of a button, you just decrease the L value by 10%. To create a muted version, decrease the S. In RGB, the same change requires recalculating all three channels." },
+  { q: "Does this converter support HSLA?", a: "Yes. Add an alpha value (0–1) and the tool outputs hsla() and the corresponding rgba() and 8-digit HEX equivalents — perfect for translucent UI elements and overlays." },
+  { q: "Can browsers render HSL directly?", a: "Yes. Every modern browser supports hsl() and hsla() in CSS without any conversion. You can write color: hsl(180, 100%, 50%) directly in your stylesheet." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="HSL Color Converter" description="Convert between HSL, HEX, and RGB formats." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">HSL Color Converter</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">HSL Color Converter</h1>
-    <HslConverter client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="HSL Color Converter" description="Convert between HSL, HEX, and RGB color formats. Free online converter for designers building intuitive design systems." slug="hsl-converter" faq={faq}>
+  <HslConverter client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Use the HSL Converter</h2>
+    <p>Enter values in any of the three input groups (HSL, HEX, or RGB) and the other two formats update automatically. This three-way binding makes it easy to translate a color between formats during a design handoff or code review. Click any output value to copy it to your clipboard.</p>
+
+    <h2>Understanding HSL: Hue, Saturation, Lightness</h2>
+    <p><strong>Hue</strong> is the angle on a color wheel: 0° red, 60° yellow, 120° green, 180° cyan, 240° blue, 300° magenta. <strong>Saturation</strong> is how vivid the color is — 0% is grayscale, 100% is the purest form of the hue. <strong>Lightness</strong> controls how light or dark — 0% is black, 50% is the pure color, 100% is white. Mastering these three axes gives you precise control over your entire palette.</p>
+
+    <h2>HSL in Modern Design Systems</h2>
+    <p>Tailwind CSS, Material Design, Radix UI, and many other systems express their color tokens in HSL internally because it makes scale generation trivial — same hue and saturation, just shift the lightness. If you are building a custom design system, defining your colors in HSL from the start saves hours of manual tuning.</p>
+
+    <h2>Practical HSL Tricks</h2>
+    <p>Need a hover state? Decrease lightness by 5–10%. Need a disabled state? Drop saturation by 60% and increase lightness by 20%. Need a complementary color for accents? Add 180° to the hue. These quick recipes are why HSL becomes addictive once designers try it.</p>
+  </Fragment>
+</ToolLayout>

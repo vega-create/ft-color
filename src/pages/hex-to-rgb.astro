@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import HexToRgb from '../components/tools/HexToRgb';
+
+const faq = [
+  { q: "How is HEX converted to RGB?", a: "Each pair of hex digits represents one of the RGB channels. For #FF5733: FF (hex) = 255 (decimal) for Red, 57 = 87 for Green, 33 = 51 for Blue. The result is rgb(255, 87, 51)." },
+  { q: "Does this tool support shorthand hex codes like #F53?", a: "Yes. Shorthand HEX codes (3 digits) are automatically expanded — #F53 becomes #FF5533 before conversion to rgb(255, 85, 51)." },
+  { q: "What about hex codes with alpha transparency?", a: "Yes. 8-digit HEX codes (like #FF5733CC) include an alpha channel. The tool converts them to rgba() format — for example, rgba(255, 87, 51, 0.8) for 80% opacity." },
+  { q: "Why would I need RGB instead of HEX?", a: "RGB values are required when manipulating colors programmatically in JavaScript, HTML5 canvas, or graphics libraries. They also let you adjust opacity via rgba() and animate channels independently." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="HEX to RGB Converter" description="Convert HEX color codes to RGB values." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">HEX to RGB Converter</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">HEX to RGB Converter</h1>
-    <HexToRgb client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="HEX to RGB Converter" description="Convert HEX color codes to RGB values instantly. Supports 3-digit shorthand, 6-digit standard, and 8-digit with alpha transparency." slug="hex-to-rgb" faq={faq}>
+  <HexToRgb client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Convert HEX to RGB</h2>
+    <p>Paste or type any HEX color code into the input field — with or without the leading <code>#</code>. The tool instantly returns the equivalent RGB value, which you can copy with one click. The result is updated in real time as you type, so you can quickly verify many conversions in a row.</p>
+
+    <h2>HEX vs RGB: When to Use Which</h2>
+    <p>HEX is the most compact and human-readable format, making it the default in CSS, Figma, Sketch, and most design tools. RGB shines when you need programmatic control: animating individual color channels in JavaScript, drawing on HTML5 canvas, working with image-processing libraries, or applying transparency via the rgba() function.</p>
+
+    <h2>Understanding the Conversion Math</h2>
+    <p>HEX is just RGB in base 16. The first pair of digits encodes red (00–FF, or 0–255), the second pair encodes green, and the third encodes blue. To convert by hand: take each pair, interpret it as hexadecimal, and convert to decimal. For example, <code>#FF5733</code> becomes <code>FF=255, 57=87, 33=51</code> → <code>rgb(255, 87, 51)</code>.</p>
+
+    <h2>Working with Transparency</h2>
+    <p>Modern CSS supports 8-digit HEX codes (#RRGGBBAA) for transparency. The last two digits represent the alpha channel from 00 (fully transparent) to FF (fully opaque). When the tool detects an 8-digit code, it outputs the rgba() equivalent automatically — useful for overlays, modal backgrounds, and ghost buttons.</p>
+  </Fragment>
+</ToolLayout>

@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import GradientGenerator from '../components/tools/GradientGenerator';
+
+const faq = [
+  { q: "What is the difference between linear and radial gradients?", a: "Linear gradients transition between colors along a straight line in any direction (top-to-bottom, left-to-right, or any angle). Radial gradients transition outward from a central point in concentric circles or ellipses. Both are fully supported in modern CSS." },
+  { q: "How many color stops can I add?", a: "CSS supports virtually unlimited color stops. Practically, 2–4 stops give the cleanest result. Adding more can create banding artifacts on low-end displays or feel cluttered visually." },
+  { q: "Can I use this for background images?", a: "Yes. The generated CSS works as a background — paste it into the background-image property of any element. Gradients render faster than image files and look crisp at every screen size." },
+  { q: "Are CSS gradients accessible?", a: "Mostly, but watch the contrast. If you place text on a gradient background, run the lightest and darkest gradient stops against your text color in our <a href='/contrast-checker/'>contrast checker</a> to ensure WCAG compliance throughout the gradient." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="CSS Gradient Generator" description="Create CSS gradients with a visual editor." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">CSS Gradient Generator</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">CSS Gradient Generator</h1>
-    <GradientGenerator client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="CSS Gradient Generator" description="Create stunning CSS gradients with a visual editor. Linear, radial, and conic gradients with unlimited color stops and angle control." slug="gradient-generator" faq={faq}>
+  <GradientGenerator client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Generate a CSS Gradient</h2>
+    <p>Pick your gradient type (linear, radial, or conic), choose two or more colors, and adjust the angle or position. The live preview updates as you tweak. When you are happy, click "Copy CSS" to get the production-ready code, then paste it into the <code>background-image</code> property of any element.</p>
+
+    <h2>Linear vs Radial vs Conic</h2>
+    <p><strong>Linear</strong> is the workhorse — gradients that fade in one direction. Perfect for hero sections, buttons, and atmospheric backgrounds. <strong>Radial</strong> creates spotlight effects, glowing buttons, and depth illusions. <strong>Conic</strong> rotates colors around a center point, ideal for pie charts, color wheels, and modern decorative elements.</p>
+
+    <h2>Designing Beautiful Gradients</h2>
+    <p>The most pleasing gradients use 2–3 colors that are close on the color wheel (analogous) with similar saturation. Avoid mixing fully saturated complementary colors — the mid-point often looks muddy gray. Famous examples: Stripe's purple-pink, Instagram's red-orange-yellow, Spotify's green-blue. Keep direction consistent (e.g., always top-to-bottom) across one design for harmony.</p>
+
+    <h2>Browser Support and Performance</h2>
+    <p>All modern browsers (Chrome, Firefox, Safari, Edge) support CSS gradients natively. They render on the GPU, so they cost less than image files and scale infinitely. For maximum compatibility on older browsers, the tool also outputs vendor-prefixed versions (<code>-webkit-</code>, <code>-moz-</code>) when relevant.</p>
+  </Fragment>
+</ToolLayout>

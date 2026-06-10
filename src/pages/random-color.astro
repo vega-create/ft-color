@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import RandomColor from '../components/tools/RandomColor';
+
+const faq = [
+  { q: "How does the random color generator work?", a: "It uses a cryptographic random number generator to pick R, G, and B values from 0–255 independently. For better-looking results, you can restrict the hue range or lightness range to bias toward pleasing colors." },
+  { q: "Why do most random colors look ugly?", a: "Random RGB tends to produce muddy or oversaturated combinations. To get aesthetically pleasing colors, use the HSL mode with restricted ranges: hue any, saturation 30–70%, lightness 40–70%. This avoids extremes." },
+  { q: "Can I generate multiple colors at once?", a: "Yes. Choose how many swatches you want (1–24) and the tool produces them all simultaneously. Useful for brainstorming, mood boards, or quick design exploration." },
+  { q: "Is the random function truly unpredictable?", a: "We use the browser's crypto.getRandomValues() API for high-quality randomness — far more uniform than the standard Math.random(). Even so, perfectly even distribution is not the same as 'pretty' — see the question above about HSL mode." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="Random Color Generator" description="Generate random colors." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">Random Color Generator</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">Random Color Generator</h1>
-    <RandomColor client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="Random Color Generator" description="Generate random colors with various constraints. Pure random, HSL-bounded, or harmonious palette mode for design inspiration." slug="random-color" faq={faq}>
+  <RandomColor client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Use the Random Color Generator</h2>
+    <p>Click "Generate" to produce a random color. Use the mode toggle to switch between pure random, harmonious random (bounded to please the eye), and palette mode (generates 5 coordinated colors at once). Copy any color with one click to use in your design or code.</p>
+
+    <h2>When Random Colors Are Useful</h2>
+    <p>Random color generators are far more practical than they sound. Developers use them for placeholder backgrounds, test data visualization, debug coloring (give each element a random tint to see how a layout breaks). Designers use them for inspiration when starting a new project or breaking out of color ruts. Educators use them to demonstrate color theory in real time.</p>
+
+    <h2>Why Bounded Randomness Looks Better</h2>
+    <p>True random RGB lands in dull greens or muddy browns surprisingly often. By bounding the HSL ranges — particularly saturation (50–80%) and lightness (40–60%) — you eliminate the ugly portions of the color space. The "harmonious" mode does this automatically, giving you bright, designer-friendly colors almost every time.</p>
+
+    <h2>From Random to Production</h2>
+    <p>If a random color speaks to you, save the HEX code. Run it through our <a href="/color-shades/">color shades generator</a> to build a full design-system scale, or feed it to the <a href="/palette-generator/">palette generator</a> to find harmonious companions. The best brand colors often start as a happy accident from a random generator.</p>
+  </Fragment>
+</ToolLayout>

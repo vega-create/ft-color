@@ -1,15 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SEO from '../components/SEO.astro';
-import AdSense from '../components/AdSense.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
 import ContrastChecker from '../components/tools/ContrastChecker';
+
+const faq = [
+  { q: "What is WCAG contrast ratio?", a: "WCAG (Web Content Accessibility Guidelines) defines contrast ratios from 1:1 (no contrast) to 21:1 (black on white). The minimum for body text is 4.5:1 (AA) and 7:1 (AAA). For large text (18pt+), the minimums drop to 3:1 (AA) and 4.5:1 (AAA)." },
+  { q: "Why does contrast matter for accessibility?", a: "Roughly 1 in 12 men and 1 in 200 women have some form of color vision deficiency. Plus, anyone reading on a low-brightness phone screen in sunlight needs strong contrast. Failing WCAG can also expose your site to legal complaints in regions like the EU and US." },
+  { q: "Does my text need to pass AA or AAA?", a: "AA is the legal baseline in most jurisdictions and what most teams aim for. AAA is stricter and recommended for medical, government, and senior-focused services. Many design systems hit AAA on the main UI and AA elsewhere." },
+  { q: "What if my brand color fails contrast?", a: "Two options: use a darker shade (try our <a href='/color-shades/'>color shades generator</a>) for text, or keep the brand color only for non-text elements (buttons, banners, icons). Brand consistency matters, but accessibility wins." },
+];
 ---
-<BaseLayout>
-  <SEO slot="head" title="Contrast Checker" description="Check WCAG color contrast for accessibility." />
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-primary-500">Home</a> <span class="mx-2">›</span> <span class="text-gray-900">Contrast Checker</span></nav>
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">Contrast Checker</h1>
-    <ContrastChecker client:load />
-    <AdSense slot="bottom" />
-  </div>
-</BaseLayout>
+
+<ToolLayout title="WCAG Contrast Checker" description="Check WCAG 2.1 color contrast ratio for accessibility compliance. Test foreground vs background colors against AA and AAA standards." slug="contrast-checker" faq={faq}>
+  <ContrastChecker client:load slot="tool" />
+
+  <Fragment slot="tutorial">
+    <h2>How to Check Color Contrast</h2>
+    <p>Enter your text color (foreground) and background color as HEX codes. The tool calculates the WCAG 2.1 contrast ratio and tells you whether the pair passes AA and AAA standards for both normal and large text. A live preview shows real text in your chosen colors so you can judge readability visually.</p>
+
+    <h2>Understanding the Contrast Math</h2>
+    <p>WCAG contrast is calculated using a precise formula: (L1 + 0.05) ÷ (L2 + 0.05), where L1 is the relative luminance of the lighter color and L2 of the darker. Luminance itself comes from a weighted RGB calculation that accounts for the human eye being more sensitive to green than red or blue. You do not need to memorize this — the tool handles it.</p>
+
+    <h2>What Passes and What Fails</h2>
+    <p><strong>Body text (under 18pt):</strong> needs 4.5:1 for AA, 7:1 for AAA. <strong>Large text (18pt+ or 14pt+ bold):</strong> needs 3:1 for AA, 4.5:1 for AAA. <strong>UI components and graphical objects:</strong> need 3:1 minimum. The most common failure: pale gray text on white. The classic "trendy" #999 on #FFF only hits 2.85:1 — failing every WCAG threshold.</p>
+
+    <h2>Fixing Failing Contrast</h2>
+    <p>If your brand color fails, do not switch the color — switch how you use it. Use the brand color for icons, buttons (white text on the brand fill usually passes), and decorative elements. Use a darker variant (try shade 700+ from our <a href="/color-shades/">shades generator</a>) for body text. For long-form reading, near-black (#1A1A1A) on near-white (#FAFAFA) gives 17:1 and minimizes eye strain.</p>
+  </Fragment>
+</ToolLayout>
